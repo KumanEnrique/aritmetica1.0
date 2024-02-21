@@ -111,7 +111,6 @@ class UI {
         this.crearEtiqueta()
         console.log(e.target.innerText)
         console.log(eval(e.target.innerText) )
-        this.crearEtiqueta
     }
     crearEtiqueta(etiqueta,texto = null,className = ''){
         const elementoHTML = document.createElement(etiqueta)
@@ -120,18 +119,10 @@ class UI {
         return elementoHTML
     }
     elementoResultado(e){
-        if(e.target.classList.contains('col-sm-6') && e.target.children.length == 1 ){
-            const contenedor = this.crearEtiqueta('div')
+        const contenedor = this.crearEtiqueta('div')
             const elementoHijo = this.crearEtiqueta('h4',`= ${eval(e.target.innerText)}`)
             contenedor.appendChild(elementoHijo)
             e.target.appendChild(contenedor)
-            this.removerResultado(e)
-        }
-    }
-    removerResultado(e){
-        setTimeout(() => {
-            e.target.children[1].remove()
-        }, 2000);
     }
 }
 const ui = new UI()
@@ -146,8 +137,6 @@ formulario.addEventListener('submit',(e) =>{
     const operandos = Number(cantidadOperandos.value)
     const inf = Number(inferior.value)
     const sup = Number(superior.value)
-    console.dir(e.target.children[3].children[0].checked)
-    console.dir(e.target.children[4].children[0].checked)
     const oper = new OPERACIONES(operandos,inf,sup)
     if(e.target.children[3].children[0].checked){
         oper.setoperadoresAcumulados = '*'
