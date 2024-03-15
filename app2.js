@@ -5,7 +5,7 @@ const btnEnviar = document.getElementById('repintar')
 const cantidadOperandos = document.getElementById('operandos')
 const inferior = document.getElementById('inferior')
 const superior = document.getElementById('superior')
-const operadores = ['+','-']
+const operadores = []
 const longitudOperadores = operadores.length
 
 //crear las formulas
@@ -14,7 +14,7 @@ class OPERACIONES {
         this.operandos = operandos
         this.inferior = inferior
         this.superior = superior
-        this.operadores = ['+','-']
+        this.operadores = []
         this.longitudOperadores = this.operadores.length
         this.actualizarLongitudOperadores();
     }
@@ -64,10 +64,7 @@ class OPERACIONES {
     }
 }
 const op = new OPERACIONES(2,1,10)
-// console.log(op.operaci=on())
-// op.setoperadoresAcumulados = '/'
-// console.log(op.operacion())
-// op.setoperadoresAcumulados = '*'
+// op.setoperadoresAcumulados = '+'
 // console.log(op.operacion())
 
 //pintar en DOM
@@ -81,9 +78,15 @@ class UI {
             for(let i = 0;i < 18;i++){
                 const operacion = new OPERACIONES(operandos,inferior,superior)
                 if(e.target.children[3].children[0].checked){
-                    operacion.setoperadoresAcumulados = '*'
+                    operacion.setoperadoresAcumulados = '+'
                 }
                 if(e.target.children[4].children[0].checked){
+                    operacion.setoperadoresAcumulados = '-'
+                }
+                if(e.target.children[5].children[0].checked){
+                    operacion.setoperadoresAcumulados = '*'
+                }
+                if(e.target.children[6].children[0].checked){
                     operacion.setoperadoresAcumulados = '/'
                 }
 
@@ -134,16 +137,10 @@ contenedorOperaciones.addEventListener('click',e =>{
 })
 formulario.addEventListener('submit',(e) =>{
     e.preventDefault()
+    console.dir(e.target.children)
     const operandos = Number(cantidadOperandos.value)
     const inf = Number(inferior.value)
     const sup = Number(superior.value)
-    const oper = new OPERACIONES(operandos,inf,sup)
-    if(e.target.children[3].children[0].checked){
-        oper.setoperadoresAcumulados = '*'
-    }
-    if(e.target.children[4].children[0].checked){
-        oper.setoperadoresAcumulados = '/'
-    }
     contenedorOperaciones.innerHTML = ''
     contenedorOperaciones.appendChild(ui.dibujar(operandos,inf,sup,e) )
 })
