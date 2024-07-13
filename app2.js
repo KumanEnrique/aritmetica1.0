@@ -74,8 +74,7 @@ class UI {
         // el parametro e es el estado del formularioo
         const fragment = document.createDocumentFragment()
         if (e){
-            console.log('hi e',e.target)
-            for(let i = 0;i < 18;i++){
+            for(let i = 0;i < 24;i++){
                 const operacion = new OPERACIONES(operandos,inferior,superior)
                 if(e.target.children[3].children[0].checked){
                     operacion.setoperadoresAcumulados = '+'
@@ -98,7 +97,7 @@ class UI {
                 fragment.appendChild(columna)
             }
         }else{
-            for(let i = 0;i < 18;i++){
+            for(let i = 0;i < 24;i++){
                 const operacion = new OPERACIONES(operandos,inferior,superior)
                 const columna = this.crearEtiqueta('div',null,'col-sm-6 offset-sm-3 border border-primary mb-1 d-flex justify-content-between')
                 const contenedorInterno = this.crearEtiqueta('div')
