@@ -89,7 +89,7 @@ class UI {
                     operacion.setoperadoresAcumulados = '/'
                 }
 
-                const columna = this.crearEtiqueta('div',null,'col-sm-6 offset-sm-3 border border-primary mb-1 d-flex justify-content-between')
+                const columna = this.crearEtiqueta('div',null,'col-sm-6 offset-sm-3 border border-primary mb-3 d-flex justify-content-between')
                 const contenedorInterno = this.crearEtiqueta('div')
                 const etiquetaH4 = this.crearEtiqueta('h4',operacion.operacion())
                 contenedorInterno.appendChild(etiquetaH4)
@@ -99,7 +99,7 @@ class UI {
         }else{
             for(let i = 0;i < 24;i++){
                 const operacion = new OPERACIONES(operandos,inferior,superior)
-                const columna = this.crearEtiqueta('div',null,'col-sm-6 offset-sm-3 border border-primary mb-1 d-flex justify-content-between')
+                const columna = this.crearEtiqueta('div',null,'col-sm-6 offset-sm-3 border border-primary mb-3 d-flex justify-content-between')
                 const contenedorInterno = this.crearEtiqueta('div')
                 const etiquetaH4 = this.crearEtiqueta('h4',operacion.operacion())
                 contenedorInterno.appendChild(etiquetaH4)
